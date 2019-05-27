@@ -10,6 +10,11 @@ export default class TodoListModel {
     return this.todos.filter(todo => !todo.finished).length;
   }
 
+  @computed
+  get finishedTodos() {
+    return this.todos.filter(todo => todo.finished).length;
+  }
+
   @action
   addTodo(title) {
     this.todos.push(new TodoModel(title));
