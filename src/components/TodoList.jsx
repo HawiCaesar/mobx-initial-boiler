@@ -22,9 +22,11 @@ class TodoList extends React.Component {
         </form>
         <hr />
         <ul>
-          {this.props.store.todos.map(todo => (
-            <Todo todo={todo} key={todo.id} />
-          ))}
+          {
+            this.props.store.todos.map(todo => (
+              <Todo todo={todo} key={todo.id} />
+            ))
+          }
         </ul>
         Tasks left: {this.props.store.unfinishedTodoCount}
       </div>
@@ -38,9 +40,9 @@ class TodoList extends React.Component {
 
   @action
   handleFormSubmit = e => {
+    e.preventDefault();
     this.props.store.addTodo(this.newTodoTitle);
     this.newTodoTitle = "";
-    e.preventDefault();
   };
 }
 

@@ -1,9 +1,11 @@
 import { observable, computed, action } from "mobx";
+import faker from 'faker';
 
 import TodoModel from "./TodoModel";
+import dataFetch from '../dataFetch';
 
 export default class TodoListModel {
-  @observable todos = [];
+  @observable todos = dataFetch();
 
   @computed
   get unfinishedTodoCount() {

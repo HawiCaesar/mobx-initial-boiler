@@ -2,13 +2,13 @@ import React from "react";
 import { observer } from "mobx-react";
 
 const Todo = observer(({ todo }) => (
-  <li>
+  <li key={todo.id}>
     <input
       type="checkbox"
       checked={todo.finished}
       onChange={() => (todo.finished = !todo.finished)}
     />
-    {todo.title}
+    {todo.finished ? (<s>{todo.title}</s>) : (todo.title) }
   </li>
 ));
 
